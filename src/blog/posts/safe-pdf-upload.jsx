@@ -34,7 +34,7 @@ export default function SafePdfUpload() {
       </p>
       <div className="p-4 bg-brand-50 rounded-xl border border-brand-100 my-4">
         <a 
-          href="https://chromewebstore.google.com/detail/smartpdf/YOUR_CHROME_ID" 
+          href="https://chromewebstore.google.com/detail/smartpdf-%E2%80%94-merge-split-pd/obhdifdgiompbmngalkgclidickpebka" 
           target="_blank" 
           rel="noopener noreferrer"
           className="text-brand-600 font-bold hover:underline"

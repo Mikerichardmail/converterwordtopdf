@@ -24,7 +24,7 @@ export default function JsonToExcelPost() {
         <p className="font-bold text-brand-900 text-sm mb-1">SmartPDF Desktop Extension — Free</p>
         <p className="text-xs text-gray-500 mb-3">Unlimited conversions · Works completely offline · No sign up required</p>
         <a 
-          href="https://chromewebstore.google.com/detail/smartpdf/YOUR_CHROME_ID" 
+          href="https://chromewebstore.google.com/detail/smartpdf-%E2%80%94-merge-split-pd/obhdifdgiompbmngalkgclidickpebka" 
           target="_blank" 
           rel="noopener noreferrer"
           className="inline-block bg-brand-500 hover:bg-brand-600 text-white text-xs px-4 py-2.5 rounded-xl font-semibold transition-colors"

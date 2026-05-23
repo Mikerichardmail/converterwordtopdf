@@ -21,9 +21,9 @@ export default function Header() {
 
         <Link to="/" className="flex items-center gap-2.5 group">
           <img 
-            src="/websiteicon.png" 
+            src="/websiteiconnew.png" 
             alt="converterwordtopdf logo" 
-            className="w-8.5 h-8.5 object-contain group-hover:scale-105 transition-transform duration-200" 
+            className="w-6 h-6 object-contain group-hover:scale-105 transition-transform duration-200" 
           />
           <span className="font-bold text-lg text-brand-900 tracking-tight">
             converter<span className="text-brand-500 font-extrabold">wordtopdf</span>

@@ -13,8 +13,8 @@ export function getBrowser() {
 
 // Replace YOUR_IDs with real IDs after publishing to each store
 export const STORE_URLS = {
-  chrome:  'https://chromewebstore.google.com/detail/smartpdf/YOUR_CHROME_ID',
-  firefox: 'https://addons.mozilla.org/en-US/firefox/addon/smartpdf/',
+  chrome:  'https://chromewebstore.google.com/detail/smartpdf-%E2%80%94-merge-split-pd/obhdifdgiompbmngalkgclidickpebka',
+  firefox: 'https://addons.mozilla.org/en-US/firefox/addon/smartpdf-merge-split-pdf-files/',
   edge:    'https://microsoftedge.microsoft.com/addons/detail/smartpdf/YOUR_EDGE_ID',
   safari:  null,
   other:   null,
