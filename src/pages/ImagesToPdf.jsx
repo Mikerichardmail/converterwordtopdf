@@ -147,6 +147,62 @@ export default function ImagesToPdf() {
         </div>
 
         <InstallBanner />
+
+        {/* How it works */}
+        <section className="mt-16 bg-gray-50/50 border border-gray-100 rounded-3xl p-8">
+          <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+            <span className="w-1 h-5 rounded-full bg-brand-500 inline-block" />
+            How to convert images to PDF client-side
+          </h2>
+          <div className="grid sm:grid-cols-3 gap-6">
+            {[
+              { step: '1', title: 'Add Images', desc: 'Drag and drop or browse to add the image files (JPG, PNG, WebP) you want to compile.' },
+              { step: '2', title: 'Arrange Order', desc: 'Confirm the order of uploaded items which will map directly to PDF pages.' },
+              { step: '3', title: 'Compile & Save', desc: 'Click Convert Images. The pages are unified into a PDF locally in seconds.' }
+            ].map(s => (
+              <div key={s.step} className="relative p-5 bg-white rounded-2xl border border-gray-100">
+                <span className="absolute right-4 top-2 text-4xl font-extrabold text-gray-50/70 select-none font-mono">
+                  0{s.step}
+                </span>
+                <h3 className="font-bold text-gray-800 text-sm mb-1">{s.title}</h3>
+                <p className="text-xs text-gray-400 font-medium leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="mt-16">
+          <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+            <span className="w-1 h-5 rounded-full bg-brand-500 inline-block" />
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-4">
+            {[
+              {
+                q: 'What image formats are supported?',
+                a: 'You can upload and convert JPG, JPEG, PNG, WebP, GIF, and BMP formats. They will all compile cleanly into your target PDF document.'
+              },
+              {
+                q: 'Will my high-resolution photos lose quality or resolution?',
+                a: 'No. The image compile engine embeds your original image assets directly onto PDF canvas sections, maintaining full color depth and resolution.'
+              },
+              {
+                q: 'Can I combine multiple formats together into one PDF?',
+                a: 'Yes. You can add a mix of JPG, PNG, and WebP files together in the same conversion batch to compile a single unified document.'
+              },
+              {
+                q: 'Are my images secure from being uploaded?',
+                a: 'Yes. The entire rendering process is executed using client-side scripts inside your browser canvas. No image payloads are sent to any server.'
+              }
+            ].map(({ q, a }) => (
+              <div key={q} className="border border-gray-200 rounded-2xl p-5 hover:border-gray-300 transition-colors">
+                <p className="font-bold text-sm text-gray-800 mb-2">{q}</p>
+                <p className="text-xs text-gray-500 font-medium leading-relaxed">{a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
 
       {showLimit && <LimitModal tool="images-to-pdf" onClose={() => setShowLimit(false)} />}

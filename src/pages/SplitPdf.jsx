@@ -168,6 +168,62 @@ export default function SplitPdf() {
         </div>
 
         <InstallBanner />
+
+        {/* How it works */}
+        <section className="mt-16 bg-gray-50/50 border border-gray-100 rounded-3xl p-8">
+          <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+            <span className="w-1 h-5 rounded-full bg-brand-500 inline-block" />
+            How to split PDF files client-side
+          </h2>
+          <div className="grid sm:grid-cols-3 gap-6">
+            {[
+              { step: '1', title: 'Upload PDF', desc: 'Drag and drop or browse to add the PDF document you want to split.' },
+              { step: '2', title: 'Enter Page Range', desc: 'Input the specific page ranges or commas for separate pages (e.g. 1-3, 5).' },
+              { step: '3', title: 'Extract Pages', desc: 'Click Split PDF. Your extracted pages will download as a ZIP file instantly.' }
+            ].map(s => (
+              <div key={s.step} className="relative p-5 bg-white rounded-2xl border border-gray-100">
+                <span className="absolute right-4 top-2 text-4xl font-extrabold text-gray-50/70 select-none font-mono">
+                  0{s.step}
+                </span>
+                <h3 className="font-bold text-gray-800 text-sm mb-1">{s.title}</h3>
+                <p className="text-xs text-gray-400 font-medium leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="mt-16">
+          <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+            <span className="w-1 h-5 rounded-full bg-brand-500 inline-block" />
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-4">
+            {[
+              {
+                q: 'What page range syntax is supported?',
+                a: 'Use dashes for ranges and commas to separate distinct pages. For example, "1-3, 5, 8-10" will split out pages 1, 2, 3, 5, 8, 9, and 10 as separate PDF files.'
+              },
+              {
+                q: 'Will the split pages keep their hyperlinks and formatting?',
+                a: 'Yes. The extraction engine copies page stream data directly, preserving all embedded links, high-res images, and text formats without alteration.'
+              },
+              {
+                q: 'Why are split pages exported as a ZIP file?',
+                a: 'Zipping is done to bundle the newly separated files together, preventing your browser from opening multiple simultaneous download windows.'
+              },
+              {
+                q: 'Is there a page extraction limit?',
+                a: 'Free web conversions allow up to 10 split pages daily. Install our free SmartPDF desktop extension for unlimited, offline page extraction.'
+              }
+            ].map(({ q, a }) => (
+              <div key={q} className="border border-gray-200 rounded-2xl p-5 hover:border-gray-300 transition-colors">
+                <p className="font-bold text-sm text-gray-800 mb-2">{q}</p>
+                <p className="text-xs text-gray-500 font-medium leading-relaxed">{a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
 
       {showLimit && <LimitModal tool="split-pdf" onClose={() => setShowLimit(false)} />}

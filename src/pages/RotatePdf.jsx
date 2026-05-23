@@ -144,6 +144,62 @@ export default function RotatePdf() {
         </div>
 
         <InstallBanner />
+
+        {/* How it works */}
+        <section className="mt-16 bg-gray-50/50 border border-gray-100 rounded-3xl p-8">
+          <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+            <span className="w-1 h-5 rounded-full bg-brand-500 inline-block" />
+            How to rotate PDF files client-side
+          </h2>
+          <div className="grid sm:grid-cols-3 gap-6">
+            {[
+              { step: '1', title: 'Upload PDF', desc: 'Drag and drop or browse to add the PDF document you want to rotate.' },
+              { step: '2', title: 'Pick Angle', desc: 'Choose between 90°, 180°, or 270° clockwise rotation angles.' },
+              { step: '3', title: 'Rotate & Save', desc: 'Click Rotate PDF. Your permanently oriented PDF is ready to download in seconds.' }
+            ].map(s => (
+              <div key={s.step} className="relative p-5 bg-white rounded-2xl border border-gray-100">
+                <span className="absolute right-4 top-2 text-4xl font-extrabold text-gray-50/70 select-none font-mono">
+                  0{s.step}
+                </span>
+                <h3 className="font-bold text-gray-800 text-sm mb-1">{s.title}</h3>
+                <p className="text-xs text-gray-400 font-medium leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="mt-16">
+          <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+            <span className="w-1 h-5 rounded-full bg-brand-500 inline-block" />
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-4">
+            {[
+              {
+                q: 'Does rotating my PDF alter text or reduce image quality?',
+                a: 'No. The rotation adjusts coordinate metadata at the page level. No rendering compression takes place, so text outlines and image fidelity are perfectly preserved.'
+              },
+              {
+                q: 'Will the page rotation save permanently?',
+                a: 'Yes. Once rotated and downloaded, the pages will display at their new angle permanently across all web browsers, desktop readers, and print pipelines.'
+              },
+              {
+                q: 'Can I select and rotate a single page instead of the entire file?',
+                a: 'The web utility rotates all pages in the PDF together. For advanced page-level editing, extraction, and individual page rotation, use our free SmartPDF desktop extension.'
+              },
+              {
+                q: 'Is PDF rotation subject to daily limits?',
+                a: 'No, page rotation is completely free and unrestricted. You can rotate as many documents as you need without hitting any limits.'
+              }
+            ].map(({ q, a }) => (
+              <div key={q} className="border border-gray-200 rounded-2xl p-5 hover:border-gray-300 transition-colors">
+                <p className="font-bold text-sm text-gray-800 mb-2">{q}</p>
+                <p className="text-xs text-gray-500 font-medium leading-relaxed">{a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
     </>
   )

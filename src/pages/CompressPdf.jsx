@@ -131,6 +131,62 @@ export default function CompressPdf() {
         </div>
 
         <InstallBanner />
+
+        {/* How it works */}
+        <section className="mt-16 bg-gray-50/50 border border-gray-100 rounded-3xl p-8">
+          <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+            <span className="w-1 h-5 rounded-full bg-brand-500 inline-block" />
+            How to compress PDF files client-side
+          </h2>
+          <div className="grid sm:grid-cols-3 gap-6">
+            {[
+              { step: '1', title: 'Add Document', desc: 'Drag and drop your bloated PDF file into the drop zone above.' },
+              { step: '2', title: 'Optimize Size', desc: 'Click Compress PDF. Our local script optimizes image streams and strips redundant metadata.' },
+              { step: '3', title: 'Save Smaller PDF', desc: 'Download your newly optimized, lightweight PDF immediately.' }
+            ].map(s => (
+              <div key={s.step} className="relative p-5 bg-white rounded-2xl border border-gray-100">
+                <span className="absolute right-4 top-2 text-4xl font-extrabold text-gray-50/70 select-none font-mono">
+                  0{s.step}
+                </span>
+                <h3 className="font-bold text-gray-800 text-sm mb-1">{s.title}</h3>
+                <p className="text-xs text-gray-400 font-medium leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="mt-16">
+          <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+            <span className="w-1 h-5 rounded-full bg-brand-500 inline-block" />
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-4">
+            {[
+              {
+                q: 'Will my text become blurry or unreadable?',
+                a: 'No. Text characters and vector paths remain perfectly sharp. Only embedded raster images are optimized, and duplicate internal metadata is stripped to reduce size.'
+              },
+              {
+                q: 'How much file size can I expect to save?',
+                a: 'Most users experience a 20% to 80% reduction in size. Scanned PDFs with high-resolution images see the most significant file size savings.'
+              },
+              {
+                q: 'Is there a file size limit for browser compression?',
+                a: 'Our web tool processes files up to 50MB. For larger documents and advanced scaling filters, we recommend using the free SmartPDF extension.'
+              },
+              {
+                q: 'Are my private files safe from cloud servers?',
+                a: 'Yes. The compression script executes in your browser sandbox using your CPU. No data leaves your machine or gets uploaded to external databases.'
+              }
+            ].map(({ q, a }) => (
+              <div key={q} className="border border-gray-200 rounded-2xl p-5 hover:border-gray-300 transition-colors">
+                <p className="font-bold text-sm text-gray-800 mb-2">{q}</p>
+                <p className="text-xs text-gray-500 font-medium leading-relaxed">{a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
 
       {showLimit && <LimitModal tool="compress-pdf" onClose={() => setShowLimit(false)} />}

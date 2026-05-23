@@ -128,6 +128,62 @@ export default function PdfToWord() {
         </div>
 
         <InstallBanner />
+
+        {/* How it works */}
+        <section className="mt-16 bg-gray-50/50 border border-gray-100 rounded-3xl p-8">
+          <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+            <span className="w-1 h-5 rounded-full bg-brand-500 inline-block" />
+            How to convert PDF to Word client-side
+          </h2>
+          <div className="grid sm:grid-cols-3 gap-6">
+            {[
+              { step: '1', title: 'Add PDF', desc: 'Drag and drop or browse to select the PDF file you want to make editable.' },
+              { step: '2', title: 'Extract Text', desc: 'Click Convert to Word. Our parser scans PDF coordinates and drafts an editable document.' },
+              { step: '3', title: 'Download DOCX', desc: 'Download your editable Word file (.docx) and open it in Microsoft Word or Google Docs.' }
+            ].map(s => (
+              <div key={s.step} className="relative p-5 bg-white rounded-2xl border border-gray-100">
+                <span className="absolute right-4 top-2 text-4xl font-extrabold text-gray-50/70 select-none font-mono">
+                  0{s.step}
+                </span>
+                <h3 className="font-bold text-gray-800 text-sm mb-1">{s.title}</h3>
+                <p className="text-xs text-gray-400 font-medium leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="mt-16">
+          <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+            <span className="w-1 h-5 rounded-full bg-brand-500 inline-block" />
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-4">
+            {[
+              {
+                q: 'Will the original document formatting be preserved?',
+                a: 'Standard text flows, alignment, paragraphs, and list indices are successfully mapped to DOCX formatting. Complex multi-column grid layouts or overlapping text structures may shift and require manual alignment.'
+              },
+              {
+                q: 'Can I convert scanned PDFs or flat image documents?',
+                a: 'This web-based tool extracts digital text elements directly from the PDF container. For flat image scans or handwritten notes, installing the free SmartPDF extension enables full OCR support.'
+              },
+              {
+                q: 'Is there a size or file conversion limit?',
+                a: 'The free browser tool supports up to 3 conversions per day. For unlimited conversions, multi-gigabyte files support, and offline processing, you can install the free SmartPDF extension.'
+              },
+              {
+                q: 'Are my private files protected?',
+                a: 'Yes. The extraction process is performed entirely locally inside your browser sandbox on your machine RAM. No file contents are uploaded to any server.'
+              }
+            ].map(({ q, a }) => (
+              <div key={q} className="border border-gray-200 rounded-2xl p-5 hover:border-gray-300 transition-colors">
+                <p className="font-bold text-sm text-gray-800 mb-2">{q}</p>
+                <p className="text-xs text-gray-500 font-medium leading-relaxed">{a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
 
       {showLimit && <LimitModal tool="pdf-to-word" onClose={() => setShowLimit(false)} />}
