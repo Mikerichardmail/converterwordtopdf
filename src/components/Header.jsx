@@ -19,10 +19,12 @@ export default function Header() {
     <header className="border-b border-gray-100 bg-white/80 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
       <div className="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
 
-        <Link to="/" className="flex items-center gap-2 group">
-          <span className="flex items-center justify-center w-8 h-8 rounded-xl bg-gradient-to-br from-brand-500 to-brand-600 text-white font-bold text-sm shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform duration-200">
-            P
-          </span>
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <img 
+            src="/websiteicon.png" 
+            alt="converterwordtopdf logo" 
+            className="w-8.5 h-8.5 object-contain group-hover:scale-105 transition-transform duration-200" 
+          />
           <span className="font-bold text-lg text-brand-900 tracking-tight">
             converter<span className="text-brand-500 font-extrabold">wordtopdf</span>
           </span>
@@ -48,11 +50,14 @@ export default function Header() {
           })}
           <Link 
             to="/blog" 
-            className={`transition-all duration-200 hover:text-brand-500 ${
+            className={`transition-all duration-200 relative py-1 hover:text-brand-500 ${
               location.pathname.startsWith('/blog') ? 'text-brand-500 font-semibold' : ''
             }`}
           >
             Blog
+            {location.pathname.startsWith('/blog') && (
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-500 rounded-full animate-fade-in" />
+            )}
           </Link>
         </nav>
 
