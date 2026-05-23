@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom'
-import { getInstallProps } from '../lib/browser'
+import { STORE_URLS } from '../lib/browser'
 
 export default function Footer() {
-  const install = getInstallProps()
-
   return (
     <footer className="border-t border-gray-100 mt-24 py-16 bg-gray-50/50">
       <div className="max-w-6xl mx-auto px-4">
@@ -32,9 +30,19 @@ export default function Footer() {
           <div>
             <p className="font-bold text-gray-800 mb-4 tracking-wide uppercase text-xs">Extension</p>
             <div className="flex flex-col gap-3 text-gray-500 font-medium">
-              {install.enabled && (
-                <a href={install.url} target="_blank" rel="noopener noreferrer" className="hover:text-brand-500 transition-colors">
-                  {install.label}
+              {STORE_URLS.chrome && (
+                <a href={STORE_URLS.chrome} target="_blank" rel="noopener noreferrer" className="hover:text-brand-500 transition-colors">
+                  Add to Chrome — Free
+                </a>
+              )}
+              {STORE_URLS.edge && (
+                <a href={STORE_URLS.edge} target="_blank" rel="noopener noreferrer" className="hover:text-brand-500 transition-colors">
+                  Add to Edge — Free
+                </a>
+              )}
+              {STORE_URLS.firefox && (
+                <a href={STORE_URLS.firefox} target="_blank" rel="noopener noreferrer" className="hover:text-brand-500 transition-colors">
+                  Add to Firefox — Free
                 </a>
               )}
               <span className="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded w-fit">SmartPDF Pro — $5.99</span>
