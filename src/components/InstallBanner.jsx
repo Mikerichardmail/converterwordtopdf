@@ -29,7 +29,7 @@ export default function InstallBanner() {
         </p>
       </div>
       
-      <div className="shrink-0 relative z-10 w-full md:w-auto flex flex-col sm:flex-row gap-3">
+      <div className="shrink-0 relative z-10 w-full md:max-w-md flex flex-row flex-wrap justify-start md:justify-end gap-2">
         {browserOptions.map(opt => {
           const isCurrent = install.browser === opt.key
           const url = STORE_URLS[opt.key]
@@ -41,7 +41,7 @@ export default function InstallBanner() {
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`text-center text-xs px-4.5 py-2.5 rounded-xl font-bold shadow-sm transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
+              className={`text-center text-[11px] px-3.5 py-2 rounded-xl font-bold shadow-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${
                 isCurrent 
                   ? `text-white ${opt.color} ring-2 ring-brand-500/10` 
                   : 'bg-white hover:bg-gray-50 text-gray-600 border border-gray-200'
