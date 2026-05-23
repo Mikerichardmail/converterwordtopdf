@@ -5,7 +5,8 @@ export function getBrowser() {
   const ua = navigator.userAgent
 
   if (ua.includes('OPR/') || ua.includes('Opera/')) return 'opera'
-  if (navigator.brave !== undefined || ua.includes('Brave/')) return 'brave'
+  if (typeof navigator !== 'undefined' && navigator.brave !== undefined) return 'brave'
+  if (ua.includes('Brave/'))  return 'brave'
   if (ua.includes('Edg/'))     return 'edge'
   if (ua.includes('Firefox/')) return 'firefox'
   if (ua.includes('Chrome/'))  return 'chrome'
@@ -25,11 +26,11 @@ export const STORE_URLS = {
 }
 
 export const STORE_LABELS = {
-  chrome:  'Add to Chrome — Free',
-  firefox: 'Add to Firefox — Free',
-  edge:    'Add to Edge — Free',
-  opera:   'Add to Opera — Free',
-  brave:   'Add to Brave — Free',
+  chrome:  'Add to Chrome',
+  firefox: 'Add to Firefox',
+  edge:    'Add to Edge',
+  opera:   'Add to Opera',
+  brave:   'Add to Brave',
   safari:  'Not available for Safari yet',
   other:   'Available for Chrome, Firefox, Edge, Opera & Brave',
 }

@@ -61,8 +61,8 @@ export default function Header() {
           </Link>
         </nav>
 
-        <div className="flex items-center gap-3">
-          {install.enabled ? (
+        {install.enabled && (
+          <div className="flex items-center gap-3">
             <a
               href={install.url}
               target="_blank"
@@ -71,12 +71,8 @@ export default function Header() {
             >
               {install.label}
             </a>
-          ) : (
-            <span className="text-xs text-gray-400 px-3.5 py-2.5 rounded-xl bg-gray-50 border border-gray-100 font-medium">
-              {install.label}
-            </span>
-          )}
-        </div>
+          </div>
+        )}
 
       </div>
 
