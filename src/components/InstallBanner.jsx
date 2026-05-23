@@ -4,6 +4,8 @@ const browserOptions = [
   { key: 'chrome', label: 'Chrome', color: 'bg-blue-600 hover:bg-blue-700' },
   { key: 'edge', label: 'Edge', color: 'bg-blue-700 hover:bg-blue-800' },
   { key: 'firefox', label: 'Firefox', color: 'bg-orange-500 hover:bg-orange-600' },
+  { key: 'opera', label: 'Opera', color: 'bg-red-600 hover:bg-red-700' },
+  { key: 'brave', label: 'Brave', color: 'bg-orange-600 hover:bg-orange-700' },
 ]
 
 export default function InstallBanner() {

@@ -45,6 +45,16 @@ export default function Footer() {
                   Add to Firefox — Free
                 </a>
               )}
+              {STORE_URLS.opera && (
+                <a href={STORE_URLS.opera} target="_blank" rel="noopener noreferrer" className="hover:text-brand-500 transition-colors">
+                  Add to Opera — Free
+                </a>
+              )}
+              {STORE_URLS.brave && (
+                <a href={STORE_URLS.brave} target="_blank" rel="noopener noreferrer" className="hover:text-brand-500 transition-colors">
+                  Add to Brave — Free
+                </a>
+              )}
               <span className="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded w-fit">SmartPDF Pro — $5.99</span>
             </div>
           </div>

@@ -49,7 +49,7 @@ export default function LimitModal({ tool, onClose }) {
           </a>
         ) : (
           <p className="text-center text-xs font-semibold text-gray-400 bg-gray-50 py-3 rounded-2xl border border-gray-100">
-            Available for Chrome, Firefox & Edge
+            Available for Chrome, Firefox, Edge, Opera & Brave
           </p>
         )}
 

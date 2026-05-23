@@ -4,6 +4,8 @@
 export function getBrowser() {
   const ua = navigator.userAgent
 
+  if (ua.includes('OPR/') || ua.includes('Opera/')) return 'opera'
+  if (navigator.brave !== undefined || ua.includes('Brave/')) return 'brave'
   if (ua.includes('Edg/'))     return 'edge'
   if (ua.includes('Firefox/')) return 'firefox'
   if (ua.includes('Chrome/'))  return 'chrome'
@@ -15,7 +17,9 @@ export function getBrowser() {
 export const STORE_URLS = {
   chrome:  'https://chromewebstore.google.com/detail/smartpdf-%E2%80%94-merge-split-pd/obhdifdgiompbmngalkgclidickpebka',
   firefox: 'https://addons.mozilla.org/en-US/firefox/addon/smartpdf-merge-split-pdf-files/',
-  edge:    'https://microsoftedge.microsoft.com/addons/detail/smartpdf/YOUR_EDGE_ID',
+  edge:    'https://chromewebstore.google.com/detail/smartpdf-%E2%80%94-merge-split-pd/obhdifdgiompbmngalkgclidickpebka',
+  opera:   'https://chromewebstore.google.com/detail/smartpdf-%E2%80%94-merge-split-pd/obhdifdgiompbmngalkgclidickpebka',
+  brave:   'https://chromewebstore.google.com/detail/smartpdf-%E2%80%94-merge-split-pd/obhdifdgiompbmngalkgclidickpebka',
   safari:  null,
   other:   null,
 }
@@ -24,14 +28,18 @@ export const STORE_LABELS = {
   chrome:  'Add to Chrome — Free',
   firefox: 'Add to Firefox — Free',
   edge:    'Add to Edge — Free',
+  opera:   'Add to Opera — Free',
+  brave:   'Add to Brave — Free',
   safari:  'Not available for Safari yet',
-  other:   'Available for Chrome, Firefox & Edge',
+  other:   'Available for Chrome, Firefox, Edge, Opera & Brave',
 }
 
 export const STORE_COLORS = {
   chrome:  'bg-blue-600 hover:bg-blue-700',
   firefox: 'bg-orange-500 hover:bg-orange-600',
   edge:    'bg-blue-700 hover:bg-blue-800',
+  opera:   'bg-red-600 hover:bg-red-700',
+  brave:   'bg-orange-600 hover:bg-orange-700',
   safari:  'bg-gray-300 cursor-not-allowed',
   other:   'bg-gray-300 cursor-not-allowed',
 }
