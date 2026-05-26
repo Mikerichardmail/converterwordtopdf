@@ -2,8 +2,8 @@ import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Header      from './components/Header'
 import Footer      from './components/Footer'
+import WordToPdf   from './pages/WordToPdf'
 
-const WordToPdf   = lazy(() => import('./pages/WordToPdf'))
 const MergePdf    = lazy(() => import('./pages/MergePdf'))
 const SplitPdf    = lazy(() => import('./pages/SplitPdf'))
 const CompressPdf = lazy(() => import('./pages/CompressPdf'))
@@ -12,6 +12,7 @@ const PdfToWord   = lazy(() => import('./pages/PdfToWord'))
 const ImagesToPdf = lazy(() => import('./pages/ImagesToPdf'))
 const Blog        = lazy(() => import('./pages/Blog'))
 const BlogPost    = lazy(() => import('./pages/BlogPost'))
+
 
 export default function App() {
   return (

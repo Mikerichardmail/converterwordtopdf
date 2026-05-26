@@ -1,4 +1,4 @@
-import { getInstallProps, STORE_URLS } from '../lib/browser'
+import { getInstallProps, STORE_URLS, isMobile } from '../lib/browser'
 
 const browserOptions = [
   { key: 'chrome', label: 'Chrome', color: 'bg-blue-600 hover:bg-blue-700' },
@@ -10,6 +10,8 @@ const browserOptions = [
 
 export default function InstallBanner() {
   const install = getInstallProps()
+
+  if (isMobile()) return null
 
   return (
     <div className="relative overflow-hidden bg-gradient-to-r from-brand-50 to-brand-100/50 border border-brand-100 rounded-2xl p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mt-12 shadow-sm">

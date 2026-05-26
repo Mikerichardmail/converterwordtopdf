@@ -163,11 +163,11 @@ export default function WordToPdf() {
               { step: '3', title: 'Download', desc: 'Save the generated PDF. No files ever touch our servers.' }
             ].map(s => (
               <div key={s.step} className="relative p-5 bg-white rounded-2xl border border-gray-100">
-                <span className="absolute right-4 top-2 text-4xl font-extrabold text-gray-50/70 select-none font-mono">
+                <span className="absolute right-4 top-2 text-4xl font-extrabold text-gray-200 select-none font-mono">
                   0{s.step}
                 </span>
                 <h3 className="font-bold text-gray-800 text-sm mb-1">{s.title}</h3>
-                <p className="text-xs text-gray-400 font-medium leading-relaxed">{s.desc}</p>
+                <p className="text-xs text-gray-500 font-medium leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>

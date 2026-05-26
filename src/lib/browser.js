@@ -45,14 +45,21 @@ export const STORE_COLORS = {
   other:   'bg-gray-300 cursor-not-allowed',
 }
 
+export function isMobile() {
+  if (typeof window === 'undefined') return false
+  const ua = navigator.userAgent || ''
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua)
+}
+
 // Returns the install button props for the detected browser
 export function getInstallProps() {
   const browser = getBrowser()
+  const mobile = isMobile()
   return {
     browser,
     url:     STORE_URLS[browser],
     label:   STORE_LABELS[browser],
     color:   STORE_COLORS[browser],
-    enabled: !!STORE_URLS[browser],
+    enabled: !mobile && !!STORE_URLS[browser],
   }
 }

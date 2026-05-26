@@ -6,7 +6,6 @@ import InstallBanner from '../components/InstallBanner'
 import LimitModal    from '../components/LimitModal'
 import { isAtLimit, recordUsage } from '../lib/limits'
 import { safeConvert } from '../lib/crashguard'
-import { compress } from '../converters/pdf'
 
 export default function CompressPdf() {
   const [file,      setFile]      = useState(null)
@@ -27,6 +26,7 @@ export default function CompressPdf() {
     setResult(null)
     setError(null)
 
+    const { compress } = await import('../converters/pdf')
     const outcome = await safeConvert(() =>
       compress(file, { onProgress: (pct, status) => setProgress({ pct, status }) })
     )
@@ -145,11 +145,11 @@ export default function CompressPdf() {
               { step: '3', title: 'Save Smaller PDF', desc: 'Download your newly optimized, lightweight PDF immediately.' }
             ].map(s => (
               <div key={s.step} className="relative p-5 bg-white rounded-2xl border border-gray-100">
-                <span className="absolute right-4 top-2 text-4xl font-extrabold text-gray-50/70 select-none font-mono">
+                <span className="absolute right-4 top-2 text-4xl font-extrabold text-gray-200 select-none font-mono">
                   0{s.step}
                 </span>
                 <h3 className="font-bold text-gray-800 text-sm mb-1">{s.title}</h3>
-                <p className="text-xs text-gray-400 font-medium leading-relaxed">{s.desc}</p>
+                <p className="text-xs text-gray-500 font-medium leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>

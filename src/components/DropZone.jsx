@@ -29,7 +29,7 @@ export default function DropZone({ onFiles, accept = '*/*', multiple = false, la
       <p className="font-semibold text-gray-700 text-base mb-1 group-hover:text-gray-900 transition-colors">
         {label}
       </p>
-      <p className="text-sm text-gray-400 font-medium">
+      <p className="text-sm text-gray-500 font-medium">
         or click to browse local files
       </p>
       

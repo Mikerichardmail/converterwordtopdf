@@ -4,7 +4,6 @@ import DropZone      from '../components/DropZone'
 import ProgressBar   from '../components/ProgressBar'
 import InstallBanner from '../components/InstallBanner'
 import { safeConvert } from '../lib/crashguard'
-import { rotate } from '../converters/pdf'
 
 export default function RotatePdf() {
   const [file,      setFile]      = useState(null)
@@ -20,6 +19,7 @@ export default function RotatePdf() {
     setResult(null)
     setError(null)
 
+    const { rotate } = await import('../converters/pdf')
     const outcome = await safeConvert(() =>
       rotate(file, degrees, { onProgress: (pct, status) => setProgress({ pct, status }) })
     )
@@ -158,11 +158,11 @@ export default function RotatePdf() {
               { step: '3', title: 'Rotate & Save', desc: 'Click Rotate PDF. Your permanently oriented PDF is ready to download in seconds.' }
             ].map(s => (
               <div key={s.step} className="relative p-5 bg-white rounded-2xl border border-gray-100">
-                <span className="absolute right-4 top-2 text-4xl font-extrabold text-gray-50/70 select-none font-mono">
+                <span className="absolute right-4 top-2 text-4xl font-extrabold text-gray-200 select-none font-mono">
                   0{s.step}
                 </span>
                 <h3 className="font-bold text-gray-800 text-sm mb-1">{s.title}</h3>
-                <p className="text-xs text-gray-400 font-medium leading-relaxed">{s.desc}</p>
+                <p className="text-xs text-gray-500 font-medium leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
